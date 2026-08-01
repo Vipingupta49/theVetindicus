@@ -1,0 +1,49 @@
+.page-shell {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.page-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(19, 60, 120, 0.08);
+  padding: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #0f6db5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: #123a65;
+}
+
+p,
+li {
+  color: #49607b;
+  line-height: 1.8;
+}
+
+.contact-list {
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  background: #0f6db5;
+  color: #fff;
+  text-decoration: none;
+}
