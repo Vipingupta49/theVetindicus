@@ -1,0 +1,53 @@
+<section class="page-shell">
+  <div class="page-card">
+    <span class="eyebrow">Saved entries</span>
+    <h1>Contact submissions</h1>
+
+    <div class="page-toolbar">
+      <p class="page-summary">Showing {{ entries.length }} contact entr{{ entries.length === 1 ? 'y' : 'ies' }}</p>
+    </div>
+
+    <div class="entries-grid" *ngIf="!loading && entries.length; else emptyState">
+      <article class="entry-card" *ngFor="let entry of pagedEntries">
+        <div class="entry-meta">
+          <span class="entry-date">{{ entry.timestamp | date: 'medium' }}</span>
+        </div>
+
+        <div class="entry-content">
+          <div class="entry-row"><strong>Name:</strong> {{ entry.payload.name || '—' }}</div>
+          <div class="entry-row"><strong>Organization:</strong> {{ entry.payload.organization || '—' }}</div>
+          <div class="entry-row"><strong>Contact:</strong> {{ entry.payload.contact || '—' }}</div>
+          <div class="entry-row"><strong>Email:</strong> {{ entry.payload.email || '—' }}</div>
+          <div class="entry-row"><strong>Purpose:</strong> {{ entry.payload.purpose || '—' }}</div>
+          <div class="entry-row"><strong>Message:</strong> {{ entry.payload.message || '—' }}</div>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #emptyState>
+      <div class="empty-state" *ngIf="!loading">
+        <p *ngIf="errorMessage; else noEntries">{{ errorMessage }}</p>
+        <ng-template #noEntries>
+          <p>No contact submissions have been saved yet.</p>
+        </ng-template>
+      </div>
+    </ng-template>
+
+    <div class="pagination" *ngIf="!loading && entries.length">
+      <button type="button" class="page-button" (click)="previousPage()" [disabled]="currentPage === 1">Prev</button>
+
+      <div class="page-numbers">
+        <button
+          type="button"
+          class="page-number"
+          *ngFor="let page of [].constructor(totalPages); let index = index"
+          [class.active]="currentPage === index + 1"
+          (click)="goToPage(index + 1)">
+          {{ index + 1 }}
+        </button>
+      </div>
+
+      <button type="button" class="page-button" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+</section>

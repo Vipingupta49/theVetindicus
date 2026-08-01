@@ -1,0 +1,120 @@
+.page-shell {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.page-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(19, 60, 120, 0.08);
+  padding: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #0f6db5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: #123a65;
+}
+
+.page-toolbar {
+  margin-bottom: 1rem;
+}
+
+.page-summary {
+  margin: 0;
+  color: #49607b;
+  font-weight: 600;
+}
+
+.entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.entry-card {
+  border: 1px solid rgba(15, 109, 181, 0.16);
+  border-radius: 18px;
+  background: #f9fdff;
+  box-shadow: 0 10px 24px rgba(15, 109, 181, 0.08);
+  overflow: hidden;
+}
+
+.entry-meta {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(15, 109, 181, 0.14);
+  background: #edf8ff;
+}
+
+.entry-date {
+  color: #0f6db5;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.entry-content {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1rem;
+  color: #39526d;
+}
+
+.entry-row {
+  line-height: 1.6;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.page-button,
+.page-number {
+  border: 1px solid rgba(15, 109, 181, 0.22);
+  background: #ffffff;
+  color: #0f6db5;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-number.active {
+  background: #0f6db5;
+  color: #fff;
+}
+
+.empty-state {
+  padding: 2rem 1rem;
+  border: 1px dashed rgba(15, 109, 181, 0.24);
+  border-radius: 18px;
+  text-align: center;
+  color: #49607b;
+}
