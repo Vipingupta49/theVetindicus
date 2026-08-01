@@ -23,6 +23,21 @@
   font-weight: 800;
 }
 
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(13, 74, 111, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+}
+
 .site-footer p,
 .footer-links,
 .footer-links span {
