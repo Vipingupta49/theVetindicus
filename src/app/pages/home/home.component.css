@@ -1,21 +1,32 @@
 .announcement-banner {
-  position: relative;
   width: 100%;
+  max-width: 100%;
   margin: 0;
   border-radius: 0;
   overflow: hidden;
-  min-height: 680px;
+  background: #f2f6fb;
   box-shadow: inset 0 -1px 0 rgba(255,255,255,0.08);
 }
 
 .announcement-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 560px);
   object-fit: cover;
   object-position: center;
+}
+
+@media (max-width: 768px) {
+  .announcement-image {
+    max-height: min(56vh, 360px);
+  }
+}
+
+@media (max-width: 480px) {
+  .announcement-image {
+    max-height: min(42vh, 260px);
+  }
 }
 
 .announcement-banner::before {
