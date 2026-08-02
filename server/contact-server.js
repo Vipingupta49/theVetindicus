@@ -61,22 +61,31 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  req.setEncoding('utf8');
   let rawBody = '';
+
   req.on('data', chunk => {
     rawBody += chunk;
   });
 
   req.on('end', () => {
     try {
-      const payload = JSON.parse(rawBody || '{}');
+      const trimmedBody = rawBody.trim();
+      const parsedBody = trimmedBody ? JSON.parse(trimmedBody) : {};
+      const payload = parsedBody && typeof parsedBody === 'object' && !Array.isArray(parsedBody)
+        ? parsedBody
+        : { value: parsedBody };
+
       const timestamp = new Date().toISOString();
       const entry = `\n[${timestamp}] ${JSON.stringify(payload, null, 2)}\n`;
 
       fs.appendFileSync(filePath, entry, 'utf8');
 
+      console.log('Saved contact entry:', payload.name || 'Unknown');
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Saved to test file.' }));
     } catch (error) {
+      console.error('Failed to parse contact payload:', error.message);
       res.writeHead(400, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Invalid payload.' }));
     }
